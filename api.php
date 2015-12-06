@@ -48,7 +48,6 @@ $api->get('/calculate', function (Silex\Application $app, Request $request) {
     } else {
         $subject = new Subject($data);
 
-        $calculator = new Calculator($subject);
         $calculator = new Calculator($subject, array(
             'omocodiaLevel' => $data['omocodiaLevel']
         ));
