@@ -1,0 +1,117 @@
+{% extends "base.twig" %}
+
+{% block title %}Prova{% endblock %}
+
+{% block mastheadH2 %}Provalo!{% endblock %}
+
+{% block content %}
+  <!-- Highlight code -->
+  <link rel="stylesheet" href="{{ app.request.basepath }}/bower_components/highlightjs/styles/github.css">
+  <script src="{{ app.request.basepath }}/bower_components/highlightjs/highlight.pack.min.js"></script>
+  
+  <div class="ui vertical stripe segment" id="funzionalita">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="sixteen wide column">
+            <h3 class="ui header">Prova i servizi</h3>
+            
+            <div class="field calculate calculateAll check">
+              <label for="type">Tipo</label>
+              <select class="ui dropdown" id="type">
+                <option value="calculate" data-url="{{ url('apiCalculate') }}" selected="selected">Calcola</option>
+                <option value="calculateAll" data-url="{{ url('apiCalculateAll') }}">Calcola Tutti</option>
+                <option value="check" data-url="{{ url('apiCheck') }}">Check</option>
+              </select>
+            </div>
+            
+            <form class="ui form segment" id="form">
+              <div class="three fields">
+                <div class="field calculate calculateAll check">
+                  <label for="name">Nome</label>
+                  <input placeholder="Nome" name="name" id="name" type="text" value="Mario">
+                </div>
+                <div class="field calculate calculateAll check">
+                  <label for="surname">Cognome</label>
+                  <input placeholder="Cognome" name="surname" id="surname" type="text" value="Rossi">
+                </div>
+                <div class="field calculate calculateAll check">
+                  <label for="birthDate">Data di Nascita</label>
+                  <input placeholder="YYYY/MM/DD" name="birthDate" id="birthDate" type="text" value="1985-12-10">
+                </div>
+              </div>
+              <div class="three fields">
+                <div class="field calculate calculateAll check">
+                  <label for="gender">Sesso</label>
+                  <select class="ui dropdown" name="gender" id="gender">
+                    <option value="M">Maschio</option>
+                    <option value="F">Femmina</option>
+                  </select>
+                </div>
+                <div class="field calculate calculateAll check">
+                  <label for="belfioreCode">Codice Belfiore</label>
+                  <input placeholder="Codice Belfiore" type="text" name="belfioreCode" id="belfioreCode" value="A562">
+                </div>
+                <div class="field calculate check">
+                  <label for="omocodiaLevel">Livello di omocodia</label>
+                  <input placeholder="Livello di omocodia" type="text" name="omocodiaLevel" id="omocodiaLevel" value="0">
+                </div>
+              </div>
+              <div class="two fields">
+                <div class="field check">
+                  <label for="codiceFiscale">Codice Fiscale</label>
+                  <input placeholder="Codice Fiscale" type="text" name="codiceFiscale" id="codiceFiscale" value="RSSMRA85T10A562S">
+                </div>
+              </div>
+              <div class="ui blue submit button" id="sendRequest">Invia</div>
+              <div class="ui error message"></div>
+            </form>
+        </div>
+      </div>
+      <div class="ui divider"></div>
+      <div class="row">
+        <div class="sixteen wide column">
+            <h3 class="ui header">Risposta</h3>
+            <pre><code id="response" class="json">{
+ "codiceFiscale": "RSSMRA85T10A562S"
+}</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $('.ui.dropdown')
+      .dropdown()
+    ;
+    
+    /**
+     * Show or hide different fields based on the type.
+     */
+    $("#type").change(function(){
+        var type = $(this).val();
+        $(".field").hide();
+        $(".field." + type).show();
+    }).change();
+    
+    
+    $("#sendRequest").click(function(){
+        var url = $("#type option:selected").data("url");
+        console.log("url:", url);
+        var field = $("#form .field." + $("#type").val());
+        var dataToSend = {};
+        $("input, select", field).each(function(index, element){
+            var $element = $(element);
+            var name = $element.attr("name");
+            var value = $element.val();
+            dataToSend[name] = value;
+        });
+        
+        $.get(url, dataToSend, function(data){
+            var response = $("#response");
+            var jsonResponse = JSON.stringify(data, null, ' ');
+            response.text(jsonResponse);
+            hljs.highlightBlock(response.get(0));
+        });
+    });
+    hljs.initHighlighting();
+  </script>
+{% endblock %}

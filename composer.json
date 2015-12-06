@@ -1,0 +1,21 @@
+{
+    "name": "davidepastore/codicefiscale-rest",
+    "authors": [
+        {
+            "name": "davidepastore",
+            "email": "pasdavide@gmail.com"
+        }
+    ],
+    "require": {
+        "silex/silex": "~1.3",
+        "davidepastore/codice-fiscale": "^0.1.1",
+        "twig/twig": "^1.23",
+        "symfony/twig-bridge": "^2.7",
+        "symfony/validator": "^3.0",
+        "symfony/property-access": "^3.0"
+    },
+    "require-dev": {
+        "symfony/browser-kit": "^3.0",
+        "symfony/css-selector": "^3.0"
+    }
+}

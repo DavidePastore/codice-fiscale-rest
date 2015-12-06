@@ -1,0 +1,231 @@
+{% extends "base.twig" %}
+
+{% block title %}Documentazione{% endblock %}
+
+{% block mastheadH2 %}Documentazione{% endblock %}
+
+{% block content %}
+  <div class="ui vertical stripe segment" id="funzionalita">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="sixteen wide column">
+          <h3 class="ui header">Calcolatore</h3>
+          <p>
+            Il calcolatore ha due tipi di utilizzo:
+          </p>
+          <div class="ui bulleted list large">
+              <div class="item">
+                <a href="#calcolaPerLivelloOmocodia">calcolare il codice fiscale del soggetto in base al livello di omocodia</a>;
+              </div>
+              <div class="item">
+                <a href="#calcolaTutteLePossibilita">calcolare tutti i possibili codici fiscali del soggetto</a>.
+              </div>
+          </div>
+          
+          
+          <h4 class="ui header" id="calcolaPerLivelloOmocodia">Calcola in base al livello di omocodia</h4>
+          In base al livello di omocodia richiesto, verrà calcolato il codice fiscale.
+          Il servizio da richiamare è: <a href="{{ url('apiCalculate') }}">{{ url('apiCalculate') }}</a> e accetta i seguenti parametri in GET:
+          <table class="ui celled structured table">
+              <thead>
+                <tr class="center aligned">
+                  <th>Nome</th>
+                  <th>Tipo</th>
+                  <th>Obbligatorio</th>
+                  <th>Valore di default</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="center aligned">
+                  <td>name</td>
+                  <td>Stringa</td>
+                  <td>
+                    <i class="large red remove icon"></i>
+                  </td>
+                  <td>Stringa vuota</td>
+                </tr>
+                <tr class="center aligned">
+                  <td>surname</td>
+                  <td>Stringa</td>
+                  <td>
+                    <i class="large red remove icon"></i>
+                  </td>
+                  <td>Stringa vuota</td>
+                </tr>
+                <tr class="center aligned">
+                  <td>birthDate</td>
+                  <td>Stringa nel formato <strong>YYYY-MM-DD</strong> (es. 1981-12-20)</td>
+                  <td>
+                    <i class="large red remove icon"></i>
+                  </td>
+                  <td>Stringa vuota</td>
+                </tr>
+                <tr class="center aligned">
+                  <td>gender</td>
+                  <td>Stringa ('M' o 'F')</td>
+                  <td>
+                    <i class="large red remove icon"></i>
+                  </td>
+                  <td>Stringa vuota</td>
+                </tr>
+                <tr class="center aligned">
+                  <td>belfioreCode</td>
+                  <td>Stringa</td>
+                  <td>
+                    <i class="large red remove icon"></i>
+                  </td>
+                  <td>AAAA</td>
+                </tr>
+                <tr class="center aligned">
+                  <td>omocodiaLevel</td>
+                  <td>Integer</td>
+                  <td>
+                    <i class="large red remove icon"></i>
+                  </td>
+                  <td>0</td>
+                </tr>
+              </tbody>
+            </table>
+          
+          
+          <h4 class="ui header" id="calcolaTutteLePossibilita">Calcola tutti i possibili codici fiscali</h4>
+          Calcola tutti i possibili codici fiscali per il soggetto richiesto.
+          Il servizio da richiamare è: <a href="{{ url('apiCalculateAll') }}">{{ url('apiCalculateAll') }}</a> e accetta i seguenti parametri in GET:
+          <table class="ui celled structured table">
+              <thead>
+                <tr class="center aligned">
+                  <th>Nome</th>
+                  <th>Tipo</th>
+                  <th>Obbligatorio</th>
+                  <th>Valore di default</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="center aligned">
+                  <td>name</td>
+                  <td>Stringa</td>
+                  <td>
+                    <i class="large red remove icon"></i>
+                  </td>
+                  <td>Stringa vuota</td>
+                </tr>
+                <tr class="center aligned">
+                  <td>surname</td>
+                  <td>Stringa</td>
+                  <td>
+                    <i class="large red remove icon"></i>
+                  </td>
+                  <td>Stringa vuota</td>
+                </tr>
+                <tr class="center aligned">
+                  <td>birthDate</td>
+                  <td>Stringa nel formato <strong>YYYY-MM-DD</strong> (es. 1981-12-20)</td>
+                  <td>
+                    <i class="large red remove icon"></i>
+                  </td>
+                  <td>Stringa vuota</td>
+                </tr>
+                <tr class="center aligned">
+                  <td>gender</td>
+                  <td>Stringa ('M' o 'F')</td>
+                  <td>
+                    <i class="large red remove icon"></i>
+                  </td>
+                  <td>Stringa vuota</td>
+                </tr>
+                <tr class="center aligned">
+                  <td>belfioreCode</td>
+                  <td>Stringa</td>
+                  <td>
+                    <i class="large red remove icon"></i>
+                  </td>
+                  <td>AAAA</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div>
+      <div class="ui divider"></div>
+      <div class="row">
+        <div class="sixteen wide column">
+          <h3 class="ui header">Controllore</h3>
+          <p>
+            Il controllore ha il compito di verificare che le informazioni del soggetto siano corrispondenti con il codice fiscale richiesto, tenendo conto
+            dei vari livelli di omocodia possibili.
+          </p>
+          
+          Il servizio da richiamare è: <a href="{{ url('apiCheck') }}">{{ url('apiCheck') }}</a> e accetta i seguenti parametri in GET:
+          <table class="ui celled structured table">
+              <thead>
+                <tr class="center aligned">
+                  <th>Nome</th>
+                  <th>Tipo</th>
+                  <th>Obbligatorio</th>
+                  <th>Valore di default</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="center aligned">
+                  <td>name</td>
+                  <td>Stringa</td>
+                  <td>
+                    <i class="large red remove icon"></i>
+                  </td>
+                  <td>Stringa vuota</td>
+                </tr>
+                <tr class="center aligned">
+                  <td>surname</td>
+                  <td>Stringa</td>
+                  <td>
+                    <i class="large red remove icon"></i>
+                  </td>
+                  <td>Stringa vuota</td>
+                </tr>
+                <tr class="center aligned">
+                  <td>birthDate</td>
+                  <td>Stringa nel formato <strong>YYYY-MM-DD</strong> (es. 1981-12-20)</td>
+                  <td>
+                    <i class="large red remove icon"></i>
+                  </td>
+                  <td>Stringa vuota</td>
+                </tr>
+                <tr class="center aligned">
+                  <td>gender</td>
+                  <td>Stringa ('M' o 'F')</td>
+                  <td>
+                    <i class="large red remove icon"></i>
+                  </td>
+                  <td>Stringa vuota</td>
+                </tr>
+                <tr class="center aligned">
+                  <td>belfioreCode</td>
+                  <td>Stringa</td>
+                  <td>
+                    <i class="large red remove icon"></i>
+                  </td>
+                  <td>AAAA</td>
+                </tr>
+                <tr class="center aligned">
+                  <td>codiceFiscale</td>
+                  <td>Stringa</td>
+                  <td>
+                    <i class="large red remove icon"></i>
+                  </td>
+                  <td>Stringa vuota</td>
+                </tr>
+                <tr class="center aligned">
+                  <td>omocodiaLevel</td>
+                  <td>Integer</td>
+                  <td>
+                    <i class="large red remove icon"></i>
+                  </td>
+                  <td>-1 (tiene conto di tutti i livelli di omocodia possibili)</td>
+                </tr>
+              </tbody>
+            </table>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

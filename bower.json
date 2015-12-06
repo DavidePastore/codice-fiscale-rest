@@ -1,0 +1,26 @@
+{
+  "name": "codicefiscale-rest",
+  "description": "Codice Fiscale REST",
+  "main": "",
+  "authors": [
+    "davidepastore <pasdavide@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "codice",
+    "fiscale"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.*",
+    "highlightjs": "~8.9.1"
+  }
+}

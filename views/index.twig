@@ -1,0 +1,47 @@
+{% extends "base.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block mastheadH2 %}Il REST free che mancava per il calcolo/controllo del codice fiscale{% endblock %}
+
+{% block additionalMasthead %}
+    <a class="ui huge button green" href="#funzionalita">Iniziamo <i class="right arrow icon"></i></a>
+{% endblock %}
+
+{% block content %}
+  <div class="ui vertical stripe segment" id="funzionalita">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="sixteen wide column">
+          <h3 class="ui header">Smetti di reinventare la ruota</h3>
+          <p>Il problema relativo al calcolo e al controllo del codice fiscale non deve più essere definito in ogni software che si crea. È giunto il momento
+          di non sbattere la testa contro il muro per il controllo dell'omocodia e di utilizzare qualcosa di affidabile.</p>
+          
+          <h3 class="ui header">Servizi REST disponibili</h3>
+          <p>
+            Si hanno a disposizione dei servizi REST che è possibile richiamare.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="center aligned column">
+          <a class="ui huge button blue" href="{{ url('prova') }}"><i class="rocket icon"></i> Provali</a>
+          <a class="ui huge button teal" href="{{ url('documentazione') }}"><i class="book icon"></i> Documentazione</a>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="sixteen wide column">
+          <h3 class="ui header">Completamente Free</h3>
+          <p>I servizi REST e la libreria di calcolo/controllo su cui essi sono basati sono completamente Free e disponibili su Github.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="center aligned column">
+          <a class="ui huge button green" href="https://github.com/DavidePastore/codice-fiscale"><i class="github icon"></i> codice-fiscale</a>
+          <a class="ui huge button green" href="https://github.com/DavidePastore/codice-fiscale-rest"><i class="github icon"></i> codice-fiscale-rest</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
