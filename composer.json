@@ -6,6 +6,11 @@
             "email": "pasdavide@gmail.com"
         }
     ],
+    "autoload" : {
+        "psr-4" : {
+            "" : "src/"
+        }
+    },
     "require": {
         "silex/silex": "~1.3",
         "davidepastore/codice-fiscale": "^0.1.1",

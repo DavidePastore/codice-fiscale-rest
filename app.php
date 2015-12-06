@@ -66,7 +66,7 @@ $app->error(function (\Exception $e, $code) {
     return new Response($message);
 });
 
-$app->mount('/api/codiceFiscale', require 'api.php');
+$app->mount('/api/codiceFiscale', new DavidePastore\CodiceFiscaleRest\CodiceFiscaleControllerProvider());
 
 $app->after(function (Request $request, Response $response) {
     $response->headers->set('Access-Control-Allow-Origin', '*');
