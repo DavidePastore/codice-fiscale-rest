@@ -43,15 +43,7 @@ class CodiceFiscaleControllerProvider implements ControllerProviderInterface
             $response = new \stdClass;
             
             if (count($errors) > 0) {
-                $response->status = false;
-                $accessor = PropertyAccess::createPropertyAccessor();
-                $responseErrors = array();
-                
-                foreach ($errors as $error) {
-                    $accessor->setValue($responseErrors, $error->getPropertyPath(), $error->getMessage());
-                }
-                
-                $response->errors = $responseErrors;
+                $response = $this->generateResponseFromErrors($errors);
             } else {
                 $subject = new Subject($data);
 
@@ -90,15 +82,7 @@ class CodiceFiscaleControllerProvider implements ControllerProviderInterface
             $response = new \stdClass;
             
             if (count($errors) > 0) {
-                $response->status = false;
-                $accessor = PropertyAccess::createPropertyAccessor();
-                $responseErrors = array();
-                
-                foreach ($errors as $error) {
-                    $accessor->setValue($responseErrors, $error->getPropertyPath(), $error->getMessage());
-                }
-                
-                $response->errors = $responseErrors;
+                $response = $this->generateResponseFromErrors($errors);
             } else {
                 $subject = new Subject($data);
 
@@ -139,15 +123,7 @@ class CodiceFiscaleControllerProvider implements ControllerProviderInterface
             $response = new \stdClass;
             
             if (count($errors) > 0) {
-                $response->status = false;
-                $accessor = PropertyAccess::createPropertyAccessor();
-                $responseErrors = array();
-                
-                foreach ($errors as $error) {
-                    $accessor->setValue($responseErrors, $error->getPropertyPath(), $error->getMessage());
-                }
-                
-                $response->errors = $responseErrors;
+                $response = $this->generateResponseFromErrors($errors);
             } else {
                 $subject = new Subject($data);
                 
@@ -171,6 +147,25 @@ class CodiceFiscaleControllerProvider implements ControllerProviderInterface
         ->bind('apiCheck');
         
         return $api;
+    }
+    
+    /**
+     * Generate response from the given ConstraintViolationList.
+     * @param $errors The ConstraintViolationList instance.
+     * @return Returns the response from the given errors.
+     */
+    private function generateResponseFromErrors(\Symfony\Component\Validator\ConstraintViolationList $errors){
+        $response = new \stdclass;
+        $response->status = false;
+        $accessor = PropertyAccess::createPropertyAccessor();
+        $responseErrors = array();
+        
+        foreach ($errors as $error) {
+            $accessor->setValue($responseErrors, $error->getPropertyPath(), $error->getMessage());
+        }
+        
+        $response->errors = $responseErrors;
+        return $response;
     }
 }
 
