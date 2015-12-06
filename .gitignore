@@ -1,4 +1,5 @@
 composer.phar
-vendor//bower_components
+vendor/
+/bower_components
 /node_modules
 /semantic
