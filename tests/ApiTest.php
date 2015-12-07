@@ -103,6 +103,22 @@ class ApiTest extends WebTestCase
                 )
             )
           ),
+          array(
+            array(
+                'name' => 'Mario',
+                'surname' => 'Rossi',
+                'birthDate' => '1985-12-10',
+                'gender' => 'M',
+                'belfioreCode' => '',
+                'omocodiaLevel' => 1,
+            ),
+            array(
+                'status' => false,
+                'errors' => (object) array(
+                    'belfioreCode' => 'This value should not be blank.'
+                )
+            )
+          ),
         );
     }
     

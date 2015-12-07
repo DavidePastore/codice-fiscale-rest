@@ -25,10 +25,13 @@ $app['codice-fiscale-rest.constraints'] = array(
         'message' => 'Choose a valid gender (M or F).'
     )),
     'birthDate' => new Assert\Date(),
-    'belfioreCode' => new Assert\Length(array(
-        'min' => 4,
-        'max' => 4
-    )),
+    'belfioreCode' => array(
+        new Assert\NotBlank(),
+        new Assert\Length(array(
+            'min' => 4,
+            'max' => 4
+        ))
+    ),
     'omocodiaLevel' => new Assert\Type(array(
         'type'    => 'numeric'
     )),
