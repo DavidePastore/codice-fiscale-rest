@@ -87,6 +87,21 @@
               </tbody>
             </table>
           
+          La risposta può essere di questi due tipi:
+          <h5 class="ui header">Caso di successo</h5>
+          <pre><code class="json">{
+ "status": true,
+ "codiceFiscale": "RSSMRA85T10A562S"
+}</code></pre>
+          
+          <h5 class="ui header">Caso di errore</h5>
+          <pre><code class="json">{
+ "status": false,
+ "errors": {
+  "birthDate": "This value is not a valid date."
+ }
+}</code></pre>
+          <div class="ui divider"></div>
           
           <h4 class="ui header" id="calcolaTutteLePossibilita">Calcola tutti i possibili codici fiscali</h4>
           Calcola tutti i possibili codici fiscali per il soggetto richiesto.
@@ -143,9 +158,34 @@
                 </tr>
               </tbody>
             </table>
+            
+            La risposta può essere di questi due tipi:
+          <h5 class="ui header">Caso di successo</h5>
+          <pre><code class="json">{
+ "status": true,
+ "codiciFiscali": [
+  "RSSMRA85T10A562S",
+  "RSSMRA85T10A56NH",
+  "RSSMRA85T10A5SNT",
+  "RSSMRA85T10ARSNO",
+  "RSSMRA85T1LARSNR",
+  "RSSMRA85TMLARSNC",
+  "RSSMRA8RTMLARSNO",
+  "RSSMRAURTMLARSNL"
+ ]
+}</code></pre>
+          
+          <h5 class="ui header">Caso di errore</h5>
+          <pre><code class="json">{
+ "status": false,
+ "errors": {
+  "birthDate": "This value is not a valid date."
+ }
+}</code></pre>
         </div>
       </div>
       <div class="ui divider"></div>
+      
       <div class="row">
         <div class="sixteen wide column">
           <h3 class="ui header">Controllore</h3>
@@ -223,9 +263,33 @@
                 </tr>
               </tbody>
             </table>
-          
+            
+          La risposta può essere di questi due tipi:
+          <h5 class="ui header">Caso di successo</h5>
+          <pre><code class="json">{
+ "status": true,
+ "message": "Valid codice fiscale"
+}</code></pre>
+
+          <h5 class="ui header">Caso di errore</h5>
+          <pre><code class="json">{
+ "status": false,
+ "message": "Invalid codice fiscale"
+}</code></pre>
+
+          <h5 class="ui header">Caso di errore dati</h5>
+          <pre><code class="json">{
+ "status": false,
+ "errors": {
+  "birthDate": "This value is not a valid date."
+ }
+}</code></pre>
         </div>
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+    //Highlight code
+    hljs.initHighlighting();
+  </script>
 {% endblock %}
