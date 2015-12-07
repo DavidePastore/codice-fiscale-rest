@@ -5,10 +5,6 @@
 {% block mastheadH2 %}Provalo!{% endblock %}
 
 {% block content %}
-  <!-- Highlight code -->
-  <link rel="stylesheet" href="{{ app.request.basepath }}/bower_components/highlightjs/styles/github.css">
-  <script src="{{ app.request.basepath }}/bower_components/highlightjs/highlight.pack.min.js"></script>
-  
   <div class="ui vertical stripe segment" id="funzionalita">
     <div class="ui middle aligned stackable grid container">
       <div class="row">
@@ -72,6 +68,7 @@
         <div class="sixteen wide column">
             <h3 class="ui header">Risposta</h3>
             <pre><code id="response" class="json">{
+ "status": true,
  "codiceFiscale": "RSSMRA85T10A562S"
 }</code></pre>
         </div>
