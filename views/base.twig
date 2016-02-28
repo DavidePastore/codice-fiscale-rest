@@ -80,7 +80,7 @@
     <div class="ui large top fixed hidden menu">
       <div class="ui container">
         <a class="{% if app.request.get('_route') == 'homepage' %}active{% endif %} item" href="{{ url('homepage') }}">
-            <img class="logo" src="{{ app.request.basepath }}/images/logo1.png">
+            <img class="logo" src="{{ app.request.basepath }}/images/logo1.png" alt="Home">
             Home
         </a>
         <a class="{% if app.request.get('_route') == 'documentazione' %}active{% endif %} item" href="{{ url('documentazione') }}">Documentazione</a>
@@ -109,7 +109,7 @@
           <i class="sidebar icon"></i>
         </a>
         <a class="{% if app.request.get('_route') == 'homepage' %}active{% endif %} item" href="{{ url('homepage') }}">
-            <img class="logo" src="{{ app.request.basepath }}/images/logo1.png">
+            <img class="logo" src="{{ app.request.basepath }}/images/logo1.png" alt="Home">
             Home
         </a>
         <a class="{% if app.request.get('_route') == 'documentazione' %}active{% endif %} item" href="{{ url('documentazione') }}">Documentazione</a>
@@ -118,7 +118,7 @@
     </div>
 
     <div class="ui text container">
-      <img class="ui centered medium image inverted header" src="{{ app.request.basepath }}/images/logo.png">
+      <img class="ui centered medium image inverted header" src="{{ app.request.basepath }}/images/logo.png" alt="Home">
       <h2>{% block mastheadH2 %}{% endblock %}</h2>
       {% block additionalMasthead %}{% endblock %}
     </div>
