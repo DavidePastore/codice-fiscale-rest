@@ -56,17 +56,20 @@ $app->get('/prova', function (Silex\Application $app) {
 })
 ->bind('prova');
 
-$app->error(function (\Exception $e, $code) {
+$app->error(function (\Exception $e, $code) use($app) {
     switch ($code) {
         case 404:
             $message = 'The requested page could not be found.';
             break;
         default:
             $message = 'We are sorry, but something went terribly wrong.';
-            echo $e;
+            //echo $e;
+            break;
     }
-
-    return new Response($message);
+    return $app['twig']->render('error.twig', array(
+      'message' => $message,
+      'code' => $code
+    ));
 });
 
 $app->mount('/api/codiceFiscale', new DavidePastore\CodiceFiscaleRest\CodiceFiscaleControllerProvider());

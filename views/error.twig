@@ -1,0 +1,17 @@
+{% extends "base.twig" %}
+
+{% block title %}Error {{ code }}{% endblock %}
+
+{% block mastheadH2 %}Error {{ code }}{% endblock %}
+
+{% block content %}
+  <div class="ui vertical stripe segment" id="funzionalita">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="sixteen wide column">
+            <h3 class="ui header">{{ message }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
