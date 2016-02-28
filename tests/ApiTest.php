@@ -1,4 +1,5 @@
 <?php
+
 use Silex\WebTestCase;
 
 class ApiTest extends WebTestCase
@@ -7,15 +8,16 @@ class ApiTest extends WebTestCase
     {
         return require __DIR__.'/../app.php';
     }
-    
+
     /**
      * Test for calculate.
+     *
      * @dataProvider calculateProvider
      */
     public function testCalculate($parameters, $expected)
     {
         $client = $this->createClient();
-        
+
         $client->request(
             'GET',
             '/api/codiceFiscale/calculate',
@@ -27,14 +29,14 @@ class ApiTest extends WebTestCase
                 'application/json'
             )
         );
-        
+
         $content = json_decode($client->getResponse()->getContent());
         $this->assertEquals(
             (object) $expected,
             $content
         );
     }
-    
+
     /**
      * The calculate provider.
      */
@@ -52,8 +54,8 @@ class ApiTest extends WebTestCase
             ),
             array(
                 'status' => true,
-                'codiceFiscale' => 'RSSMRA85T10A562S'
-            )
+                'codiceFiscale' => 'RSSMRA85T10A562S',
+            ),
           ),
           array(
             array(
@@ -67,9 +69,9 @@ class ApiTest extends WebTestCase
             array(
                 'status' => false,
                 'errors' => (object) array(
-                    'birthDate' => 'This value is not a valid date.'
-                )
-            )
+                    'birthDate' => 'This value is not a valid date.',
+                ),
+            ),
           ),
           array(
             array(
@@ -83,9 +85,9 @@ class ApiTest extends WebTestCase
             array(
                 'status' => false,
                 'errors' => (object) array(
-                    'gender' => 'Choose a valid gender (M or F).'
-                )
-            )
+                    'gender' => 'Choose a valid gender (M or F).',
+                ),
+            ),
           ),
           array(
             array(
@@ -99,9 +101,9 @@ class ApiTest extends WebTestCase
             array(
                 'status' => false,
                 'errors' => (object) array(
-                    'omocodiaLevel' => 'This value should be of type numeric.'
-                )
-            )
+                    'omocodiaLevel' => 'This value should be of type numeric.',
+                ),
+            ),
           ),
           array(
             array(
@@ -115,21 +117,22 @@ class ApiTest extends WebTestCase
             array(
                 'status' => false,
                 'errors' => (object) array(
-                    'belfioreCode' => 'This value should not be blank.'
-                )
-            )
+                    'belfioreCode' => 'This value should not be blank.',
+                ),
+            ),
           ),
         );
     }
-    
+
     /**
      * Test for calculate all.
+     *
      * @dataProvider calculateAllProvider
      */
     public function testCalculateAll($parameters, $expected)
     {
         $client = $this->createClient();
-        
+
         $client->request(
             'GET',
             '/api/codiceFiscale/calculateAll',
@@ -141,14 +144,14 @@ class ApiTest extends WebTestCase
                 'application/json'
             )
         );
-        
+
         $content = json_decode($client->getResponse()->getContent());
         $this->assertEquals(
             (object) $expected,
             $content
         );
     }
-    
+
     /**
      * The calculateAll provider.
      */
@@ -161,7 +164,7 @@ class ApiTest extends WebTestCase
                'surname' => 'Rossi',
                'birthDate' => '1985-12-10',
                'gender' => 'M',
-               'belfioreCode' => 'A562'
+               'belfioreCode' => 'A562',
             ),
             array(
                 'status' => true,
@@ -173,9 +176,9 @@ class ApiTest extends WebTestCase
                     'RSSMRA85T1LARSNR',
                     'RSSMRA85TMLARSNC',
                     'RSSMRA8RTMLARSNO',
-                    'RSSMRAURTMLARSNL'
-                )
-            )
+                    'RSSMRAURTMLARSNL',
+                ),
+            ),
           ),
           array(
             array(
@@ -183,14 +186,14 @@ class ApiTest extends WebTestCase
                 'surname' => 'Rossi',
                 'birthDate' => '1985-1-10',
                 'gender' => 'M',
-                'belfioreCode' => 'A562'
+                'belfioreCode' => 'A562',
             ),
             array(
                 'status' => false,
                 'errors' => (object) array(
-                    'birthDate' => 'This value is not a valid date.'
-                )
-            )
+                    'birthDate' => 'This value is not a valid date.',
+                ),
+            ),
           ),
           array(
             array(
@@ -198,14 +201,14 @@ class ApiTest extends WebTestCase
                 'surname' => 'Rossi',
                 'birthDate' => '1985-12-10',
                 'gender' => 'B',
-                'belfioreCode' => 'A562'
+                'belfioreCode' => 'A562',
             ),
             array(
                 'status' => false,
                 'errors' => (object) array(
-                    'gender' => 'Choose a valid gender (M or F).'
-                )
-            )
+                    'gender' => 'Choose a valid gender (M or F).',
+                ),
+            ),
           ),
           array(
             array(
@@ -213,26 +216,27 @@ class ApiTest extends WebTestCase
                 'surname' => 'Rossi',
                 'birthDate' => '1985-12-10',
                 'gender' => 'M',
-                'belfioreCode' => '123'
+                'belfioreCode' => '123',
             ),
             array(
                 'status' => false,
                 'errors' => (object) array(
-                    'belfioreCode' => 'This value should have exactly 4 characters.'
-                )
-            )
+                    'belfioreCode' => 'This value should have exactly 4 characters.',
+                ),
+            ),
           ),
         );
     }
-    
+
     /**
      * Test for check.
+     *
      * @dataProvider checkerProvider
      */
     public function testCheck($parameters, $expected)
     {
         $client = $this->createClient();
-        
+
         $client->request(
             'GET',
             '/api/codiceFiscale/check',
@@ -244,14 +248,14 @@ class ApiTest extends WebTestCase
                 'application/json'
             )
         );
-        
+
         $content = json_decode($client->getResponse()->getContent());
         $this->assertEquals(
             (object) $expected,
             $content
         );
     }
-    
+
     /**
      * The checker provider.
      */
@@ -270,8 +274,8 @@ class ApiTest extends WebTestCase
             ),
             array(
                 'status' => true,
-                'message' => 'Valid codice fiscale'
-            )
+                'message' => 'Valid codice fiscale',
+            ),
           ),
           array(
             array(
@@ -285,8 +289,8 @@ class ApiTest extends WebTestCase
             ),
             array(
                 'status' => false,
-                'message' => 'Invalid codice fiscale'
-            )
+                'message' => 'Invalid codice fiscale',
+            ),
           ),
           array(
             array(
@@ -295,12 +299,12 @@ class ApiTest extends WebTestCase
                 'birthDate' => '1985-12-10',
                 'gender' => 'M',
                 'belfioreCode' => 'A562',
-                'codiceFiscale' => 'RSSMRA85T10ARSNO'
+                'codiceFiscale' => 'RSSMRA85T10ARSNO',
             ),
             array(
                 'status' => true,
-                'message' => 'Valid codice fiscale'
-            )
+                'message' => 'Valid codice fiscale',
+            ),
           ),
           array(
             array(
@@ -315,9 +319,9 @@ class ApiTest extends WebTestCase
             array(
                 'status' => false,
                 'errors' => (object) array(
-                    'omocodiaLevel' => 'This value should be of type numeric.'
-                )
-            )
+                    'omocodiaLevel' => 'This value should be of type numeric.',
+                ),
+            ),
           ),
         );
     }
