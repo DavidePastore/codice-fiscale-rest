@@ -9,6 +9,31 @@
 A simple codice fiscale rest website
 
 
+Installation
+------------
+
+### Install Semantic UI
+
+``` bash
+npm install semantic-ui --save
+cd semantic/
+gulp build
+```
+
+### Install dependencies from bower.json
+
+``` bash
+bower install
+```
+
+
+### Install dependencies from composer.json
+
+``` bash
+composer install
+```
+
+
 Test
 ----
 
