@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8eee49f6413355106079544c4d23ffa9",
+    "hash": "54b0dde8703da28c3875219c1e89eb7a",
     "content-hash": "2435adbcbdd09f5a33fd8c6801ce43cf",
     "packages": [
         {
             "name": "davidepastore/codice-fiscale",
-            "version": "v0.1.1",
+            "version": "v0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DavidePastore/codice-fiscale.git",
-                "reference": "552a19ce00240a19abfa492f611f189cc879bde3"
+                "reference": "ec03060a19216d3312e71073f0c323971822c2cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DavidePastore/codice-fiscale/zipball/552a19ce00240a19abfa492f611f189cc879bde3",
-                "reference": "552a19ce00240a19abfa492f611f189cc879bde3",
+                "url": "https://api.github.com/repos/DavidePastore/codice-fiscale/zipball/ec03060a19216d3312e71073f0c323971822c2cc",
+                "reference": "ec03060a19216d3312e71073f0c323971822c2cc",
                 "shasum": ""
             },
             "require-dev": {
@@ -49,7 +49,7 @@
                 "tax code",
                 "validator"
             ],
-            "time": "2015-11-22 19:12:55"
+            "time": "2016-04-14 09:12:29"
         },
         {
             "name": "pimple/pimple",
