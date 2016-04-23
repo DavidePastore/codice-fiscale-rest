@@ -2,9 +2,9 @@
 
 namespace DavidePastore\CodiceFiscaleRest;
 
-use DavidePastore\CodiceFiscale\Calculator;
-use DavidePastore\CodiceFiscale\Checker;
-use DavidePastore\CodiceFiscale\Subject;
+use CodiceFiscale\Calculator;
+use CodiceFiscale\Checker;
+use CodiceFiscale\Subject;
 use Silex\Application;
 use Silex\ControllerProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
