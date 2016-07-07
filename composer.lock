@@ -9,16 +9,16 @@
     "packages": [
         {
             "name": "davidepastore/codice-fiscale",
-            "version": "v0.2.0",
+            "version": "v0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DavidePastore/codice-fiscale.git",
-                "reference": "353f5c2d47c1a98d621229ea4b5aa1b366761296"
+                "reference": "cda6afc169045be5086978b3f1fdd41746486d3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DavidePastore/codice-fiscale/zipball/353f5c2d47c1a98d621229ea4b5aa1b366761296",
-                "reference": "353f5c2d47c1a98d621229ea4b5aa1b366761296",
+                "url": "https://api.github.com/repos/DavidePastore/codice-fiscale/zipball/cda6afc169045be5086978b3f1fdd41746486d3e",
+                "reference": "cda6afc169045be5086978b3f1fdd41746486d3e",
                 "shasum": ""
             },
             "require-dev": {
@@ -49,7 +49,7 @@
                 "tax code",
                 "validator"
             ],
-            "time": "2016-04-22 09:17:09"
+            "time": "2016-07-07 19:08:05"
         },
         {
             "name": "pimple/pimple",
