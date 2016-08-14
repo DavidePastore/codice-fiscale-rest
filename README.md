@@ -6,7 +6,7 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-A simple codice fiscale rest website
+A simple codice fiscale rest website based on [Silex](http://silex.sensiolabs.org/).
 
 
 Installation
