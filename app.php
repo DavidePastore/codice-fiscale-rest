@@ -56,7 +56,7 @@ $app->get('/prova', function (Silex\Application $app) {
 })
 ->bind('prova');
 
-$app->error(function (\Exception $e, $code) use($app) {
+$app->error(function (\Exception $e, $code) use ($app) {
     switch ($code) {
         case 404:
             $message = 'The requested page could not be found.';
