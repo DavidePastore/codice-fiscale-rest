@@ -1,5 +1,6 @@
 {
     "name": "davidepastore/codicefiscale-rest",
+    "type": "library",
     "authors": [
         {
             "name": "Davide Pastore",
