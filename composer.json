@@ -9,6 +9,7 @@
             "email": "pasdavide@gmail.com"
         }
     ],
+    "license" : "GPL-2.0+",
     "autoload" : {
         "psr-4" : {
             "" : "src/"
