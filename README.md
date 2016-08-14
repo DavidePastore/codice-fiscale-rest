@@ -7,6 +7,7 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 
 [![Build Status][ico-phpeye]][link-phpeye]
+[![PSR2 Conformance][ico-styleci]][link-styleci]
 
 A simple codice fiscale rest website based on [Silex](http://silex.sensiolabs.org/).
 
@@ -57,6 +58,7 @@ If you have issues, just open one [here](https://github.com/DavidePastore/codice
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/davidepastore/codice-fiscale-rest.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/DavidePastore/codice-fiscale-rest.svg?style=flat-square
 [ico-phpeye]: http://php-eye.com/badge/DavidePastore/codice-fiscale-rest/tested.svg?style=flat-square
+[ico-styleci]: https://styleci.io/repos/47505745/shield
 
 [link-packagist]: https://packagist.org/packages/DavidePastore/codice-fiscale-rest
 [link-travis]: https://travis-ci.org/DavidePastore/codice-fiscale-rest
@@ -64,3 +66,4 @@ If you have issues, just open one [here](https://github.com/DavidePastore/codice
 [link-code-quality]: https://scrutinizer-ci.com/g/DavidePastore/codice-fiscale-rest
 [link-downloads]: https://packagist.org/packages/DavidePastore/codice-fiscale-rest
 [link-phpeye]: http://php-eye.com/package/DavidePastore/codice-fiscale-rest
+[link-styleci]: https://styleci.io/repos/47505745/
