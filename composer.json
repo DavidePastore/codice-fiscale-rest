@@ -1,5 +1,6 @@
 {
     "name": "davidepastore/codicefiscale-rest",
+    "description": "A simple codice fiscale rest website based on Silex.",
     "keywords": ["codice","fiscale","rest","silex", "tax", "code", "italian", "italy", "php"],
     "type": "library",
     "authors": [
