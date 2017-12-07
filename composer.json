@@ -26,6 +26,7 @@
     "require-dev": {
         "symfony/browser-kit": "^3.0",
         "symfony/css-selector": "^3.0",
+        "phpunit/phpunit": "^4.0",
         "scrutinizer/ocular": "~1.1"
     }
 }
