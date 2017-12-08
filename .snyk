@@ -6,3 +6,28 @@ patch:
   'npm:marked:20170907':
     - gulp-notify > node-notifier > cli-usage > marked:
         patched: '2017-10-30T00:17:11.932Z'
+  'npm:minimatch:20160620':
+    - gulp > vinyl-fs > glob-watcher > gaze > globule > minimatch:
+        patched: '2017-12-08T13:33:55.087Z'
+    - gulp > vinyl-fs > glob-stream > minimatch:
+        patched: '2017-12-08T13:33:55.087Z'
+    - semantic-ui > gulp > vinyl-fs > glob-stream > minimatch:
+        patched: '2017-12-08T13:33:55.087Z'
+    - gulp > vinyl-fs > glob-stream > glob > minimatch:
+        patched: '2017-12-08T13:33:55.087Z'
+    - semantic-ui > gulp-copy > gulp > vinyl-fs > glob-stream > glob > minimatch:
+        patched: '2017-12-08T13:33:55.087Z'
+    - semantic-ui > gulp > vinyl-fs > glob-stream > glob > minimatch:
+        patched: '2017-12-08T13:33:55.087Z'
+    - semantic-ui > gulp-copy > gulp > vinyl-fs > glob-stream > minimatch:
+        patched: '2017-12-08T13:33:55.087Z'
+    - semantic-ui > gulp-copy > gulp > vinyl-fs > glob-watcher > gaze > globule > minimatch:
+        patched: '2017-12-08T13:33:55.087Z'
+    - semantic-ui > gulp > vinyl-fs > glob-watcher > gaze > globule > minimatch:
+        patched: '2017-12-08T13:33:55.087Z'
+    - gulp > vinyl-fs > glob-watcher > gaze > globule > glob > minimatch:
+        patched: '2017-12-08T13:33:55.087Z'
+    - semantic-ui > gulp-copy > gulp > vinyl-fs > glob-watcher > gaze > globule > glob > minimatch:
+        patched: '2017-12-08T13:33:55.087Z'
+    - semantic-ui > gulp > vinyl-fs > glob-watcher > gaze > globule > glob > minimatch:
+        patched: '2017-12-08T13:33:55.087Z'
