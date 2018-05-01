@@ -6,11 +6,13 @@ php:
   - 7.0
   - 7.1
 
-# also test against HHVM, but require "trusty"
+# also test against HHVM, but require "trusty" and ignore errors
 matrix:
   include:
     - php: hhvm
       dist: trusty
+  allow_failures:
+    - php: hhvm
 
 before_script:
   - composer self-update
