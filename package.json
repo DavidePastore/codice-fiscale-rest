@@ -31,11 +31,12 @@
     "run-sequence": "^1.1.5",
     "semantic-ui": "^2.1.6",
     "yamljs": "^0.2.4",
-    "snyk": "^1.54.1"
+    "snyk": "^1.83.0"
   },
   "scripts": {
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "prepublish": "npm run snyk-protect",
+    "prepare": "npm run snyk-protect"
   },
   "snyk": true
 }
