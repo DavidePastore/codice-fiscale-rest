@@ -8,20 +8,20 @@
     "packages": [
         {
             "name": "davidepastore/codice-fiscale",
-            "version": "v0.3.0",
+            "version": "v0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DavidePastore/codice-fiscale.git",
-                "reference": "bb71a4c08b472dbc4bf3d33c11228e4e4b0f6fba"
+                "reference": "585f8171787ef62a1eb602a4e64e3e282b9b477a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DavidePastore/codice-fiscale/zipball/bb71a4c08b472dbc4bf3d33c11228e4e4b0f6fba",
-                "reference": "bb71a4c08b472dbc4bf3d33c11228e4e4b0f6fba",
+                "url": "https://api.github.com/repos/DavidePastore/codice-fiscale/zipball/585f8171787ef62a1eb602a4e64e3e282b9b477a",
+                "reference": "585f8171787ef62a1eb602a4e64e3e282b9b477a",
                 "shasum": ""
             },
             "require-dev": {
-                "phpunit/phpunit": "3.7.*",
+                "phpunit/phpunit": "^7",
                 "scrutinizer/ocular": "~1.1"
             },
             "type": "library",
@@ -48,7 +48,7 @@
                 "tax code",
                 "validator"
             ],
-            "time": "2018-01-27T17:45:31+00:00"
+            "time": "2019-05-26T16:56:18+00:00"
         },
         {
             "name": "pimple/pimple",
@@ -209,6 +209,7 @@
             "keywords": [
                 "microframework"
             ],
+            "abandoned": "symfony/flex",
             "time": "2015-09-15T06:53:42+00:00"
         },
         {
