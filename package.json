@@ -31,7 +31,7 @@
     "run-sequence": "^1.1.5",
     "semantic-ui": "^2.1.6",
     "yamljs": "^0.2.4",
-    "snyk": "^1.192.3"
+    "snyk": "^1.231.0"
   },
   "scripts": {
     "snyk-protect": "snyk protect",
