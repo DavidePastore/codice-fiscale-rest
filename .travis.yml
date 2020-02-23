@@ -1,15 +1,14 @@
-language: php
-
-php:
-  - 7.1
-  - 7.2
-  - 7.3
-  - 7.4
-
 # also test against HHVM, but require "trusty" and ignore errors
 matrix:
   include:
-    - php: hhvm
+    - language: php
+      php:
+        - 7.1
+        - 7.2
+        - 7.3
+        - 7.4
+    - language: php
+      php: hhvm
       dist: trusty
   allow_failures:
     - php: hhvm
