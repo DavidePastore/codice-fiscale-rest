@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "fomantic-ui": "^2.8.3",
+    "jquery": "1.*",
     "snyk": "^1.231.0",
     "yamljs": "^0.2.4"
   },
