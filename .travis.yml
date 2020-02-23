@@ -1,15 +1,30 @@
 # also test against HHVM, but require "trusty" and ignore errors
 matrix:
   include:
-    - language: php
-      php:
-        - 7.1
-        - 7.2
-        - 7.3
-        - 7.4
-    - language: php
-      php: hhvm
+    - php: 7.1
+    - php: 7.2
+    - php: 7.3
+    - php: 7.4
+    - php: hhvm
       dist: trusty
+    - node_js: 8
+      script:
+        - npm install
+    - node_js: 10
+      script:
+        - npm install
+    - node_js: 11
+      script:
+        - npm install
+    - node_js: 12
+      script:
+        - npm install
+    - node_js: 13
+      script:
+        - npm install
+    - node_js: 14
+      script:
+        - npm install
   allow_failures:
     - php: hhvm
 
