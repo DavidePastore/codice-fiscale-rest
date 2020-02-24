@@ -1,3 +1,4 @@
+language: php
 # also test against HHVM, but require "trusty" and ignore errors
 matrix:
   include:
