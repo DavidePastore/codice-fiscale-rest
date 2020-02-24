@@ -6,12 +6,13 @@ matrix:
     - php: 7.2
     - php: 7.3
     - php: 7.4
+      after_script:
+        - php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
     - php: hhvm
       dist: trusty
     - node_js: 8
       script:
         - npm install
-        - gulp --version
     - node_js: 10
       script:
         - npm install
@@ -37,6 +38,3 @@ before_script:
 script:
   - vendor/bin/phpunit --testsuite travis-ci
   - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
-
-after_script:
-  - php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
