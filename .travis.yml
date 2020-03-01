@@ -29,16 +29,18 @@ matrix:
 cache:
   npm: false
 
-if: language = 'node_js'
-  script:
-    - npm install
-
-if: language = 'php'
-  before_script:
+stages:
+  - name: php-build
+    if: language = 'php'
+    before_script:
     - composer self-update
     - composer update --prefer-source
-  script:
-    - vendor/bin/phpunit --testsuite travis-ci
-    - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
-  after_script:
-    - php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
+    script:
+      - vendor/bin/phpunit --testsuite travis-ci
+      - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
+    after_script:
+      - php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
+  - name: node-build
+    if: language = 'node_js'
+    script:
+      - npm install
