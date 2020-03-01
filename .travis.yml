@@ -10,41 +10,35 @@ matrix:
       php: 7.3
     - language: php
       php: 7.4
-      after_script:
-        - php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
     - language: php
       php: hhvm
       dist: trusty
     - language: node_js
       node_js: 8
-      script:
-        - npm install
     - language: node_js
       node_js: 10
-      script:
-        - npm install
     - language: node_js
       node_js: 11
-      script:
-        - npm install
     - language: node_js
       node_js: 12
-      script:
-        - npm install
     - language: node_js
       node_js: 13
-      script:
-        - npm install
   allow_failures:
     - php: hhvm
 
 cache:
   npm: false
 
-before_script:
-  - composer self-update
-  - composer update --prefer-source
+if: language = 'node_js'
+  script:
+    - npm install
 
-script:
-  - vendor/bin/phpunit --testsuite travis-ci
-  - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
+if: language = 'php'
+  before_script:
+    - composer self-update
+    - composer update --prefer-source
+  script:
+    - vendor/bin/phpunit --testsuite travis-ci
+    - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
+  after_script:
+    - php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
