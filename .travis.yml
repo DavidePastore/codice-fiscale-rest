@@ -35,10 +35,6 @@ matrix:
       node_js: 13
       script:
         - npm install
-    - language: node_js
-      node_js: 14
-      script:
-        - npm install
   allow_failures:
     - php: hhvm
 
