@@ -44,3 +44,6 @@ stages:
     if: language = 'node_js'
     script:
       - npm install
+  - name: test-test-test
+    script:
+      - echo "$language"
