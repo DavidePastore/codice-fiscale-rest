@@ -23,6 +23,23 @@ jobs:
       node_js: 12
     - language: node_js
       node_js: 13
+    - stage: gne
+      script:
+        - echo "??????????????HELLO??????????????"
+        - echo $language
+    - stage: php-build
+      before_script:
+      - composer self-update
+      - composer update --prefer-source
+      script:
+        - vendor/bin/phpunit --testsuite travis-ci
+        - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
+      after_script:
+        - php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
+    - stage: node-build
+      script:
+        - npm install
+
   allow_failures:
     - php: hhvm
 
@@ -30,20 +47,8 @@ cache:
   npm: false
 
 stages:
+  - name: gne
   - name: php-build
-    if: language = 'php'
-    before_script:
-    - composer self-update
-    - composer update --prefer-source
-    script:
-      - vendor/bin/phpunit --testsuite travis-ci
-      - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
-    after_script:
-      - php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
+    if: language = php
   - name: node-build
-    if: language = 'node_js'
-    script:
-      - npm install
-  - name: test-test-test
-    script:
-      - echo "$language"
+    if: language = node_js or language = node or language = nodejs
