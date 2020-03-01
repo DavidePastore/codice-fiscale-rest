@@ -1,6 +1,6 @@
 language: php
 # also test against HHVM, but require "trusty" and ignore errors
-matrix:
+jobs:
   include:
     - language: php
       php: 7.1
