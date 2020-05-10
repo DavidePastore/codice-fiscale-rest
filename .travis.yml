@@ -2,32 +2,12 @@ language: php
 # also test against HHVM, but require "trusty" and ignore errors
 jobs:
   include:
-    - language: php
+    # Use a YAML alias to prevent redundancy.
+    # https://github.com/travis-ci/travis-ci/issues/8295#issuecomment-454167006
+    - &phpbuild
+      stage: php-build
+      language: php
       php: 7.1
-    - language: php
-      php: 7.2
-    - language: php
-      php: 7.3
-    - language: php
-      php: 7.4
-    - language: php
-      php: hhvm
-      dist: trusty
-    - language: node_js
-      node_js: 8
-    - language: node_js
-      node_js: 10
-    - language: node_js
-      node_js: 11
-    - language: node_js
-      node_js: 12
-    - language: node_js
-      node_js: 13
-    - stage: gne
-      script:
-        - echo "??????????????HELLO??????????????"
-        - echo $language
-    - stage: php-build
       before_script:
       - composer self-update
       - composer update --prefer-source
@@ -36,19 +16,31 @@ jobs:
         - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
       after_script:
         - php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
-    - stage: node-build
+    - &nodebuild
+      stage: node-build
+      language: node_js
+      node_js: 8
       script:
         - npm install
-
+    - <<: *phpbuild
+      php: 7.2
+    - <<: *phpbuild
+      php: 7.3
+    - <<: *phpbuild
+      php: 7.4
+    - <<: *phpbuild
+      php: hhvm
+      dist: trusty
+    - <<: *nodebuild
+      node_js: 10
+    - <<: *nodebuild
+      node_js: 11
+    - <<: *nodebuild
+      node_js: 12
+    - <<: *nodebuild
+      node_js: 13
   allow_failures:
     - php: hhvm
 
 cache:
   npm: false
-
-stages:
-  - name: gne
-  - name: php-build
-    if: language = php
-  - name: node-build
-    if: language = node_js or language = node or language = nodejs
