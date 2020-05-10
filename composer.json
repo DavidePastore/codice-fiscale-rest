@@ -28,5 +28,8 @@
         "symfony/css-selector": "^3.0",
         "phpunit/phpunit": "^4.0",
         "scrutinizer/ocular": "~1.1"
+    },
+    "scripts": {
+        "start": "php -S localhost:8080 -t ./ ./index.php"
     }
 }
