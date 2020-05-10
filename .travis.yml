@@ -1,26 +1,46 @@
 language: php
-
-php:
-  - 7.1
-  - 7.2
-  - 7.3
-  - 7.4
-
 # also test against HHVM, but require "trusty" and ignore errors
-matrix:
+jobs:
   include:
-    - php: hhvm
+    # Use a YAML alias to prevent redundancy.
+    # https://github.com/travis-ci/travis-ci/issues/8295#issuecomment-454167006
+    - &phpbuild
+      stage: php-build
+      language: php
+      php: 7.1
+      before_script:
+      - composer self-update
+      - composer update --prefer-source
+      script:
+        - vendor/bin/phpunit --testsuite travis-ci
+        - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
+      after_script:
+        - php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
+    - &nodebuild
+      stage: node-build
+      language: node_js
+      node_js: 8
+      script:
+        - npm install
+    - <<: *phpbuild
+      php: 7.2
+    - <<: *phpbuild
+      php: 7.3
+    - <<: *phpbuild
+      php: 7.4
+    - <<: *phpbuild
+      php: hhvm
       dist: trusty
+    - <<: *nodebuild
+      node_js: 10
+    - <<: *nodebuild
+      node_js: 11
+    - <<: *nodebuild
+      node_js: 12
+    - <<: *nodebuild
+      node_js: 13
   allow_failures:
     - php: hhvm
 
-before_script:
-  - composer self-update
-  - composer update --prefer-source
-
-script:
-  - vendor/bin/phpunit --testsuite travis-ci
-  - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
-
-after_script:
-  - php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
+cache:
+  npm: false
