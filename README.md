@@ -38,11 +38,7 @@ To launch the application with the default port (`8080`), you can use the follow
 composer start
 ```
 
-or alternatively you can launch or edit the following, choosing the port that you prefer to use:
-
-``` bash
-php -S localhost:8080 -t ./ ./index.php
-```
+or alternatively you can edit the `start` script (under the `scripts` property) in the `composer.json` file, choosing the port that you prefer to use.
 
 
 Test

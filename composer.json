@@ -31,5 +31,8 @@
     },
     "scripts": {
         "start": "php -S localhost:8080 -t ./ ./index.php"
+    },
+    "config": {
+        "process-timeout": 0
     }
 }
