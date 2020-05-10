@@ -29,6 +29,18 @@ composer install
 ```
 
 
+Launch
+------
+
+To launch the application with the default port (`8080`), you can use the following command:
+
+``` bash
+composer start
+```
+
+or alternatively you can edit the `start` script (under the `scripts` property) in the `composer.json` file, choosing the port that you prefer to use.
+
+
 Test
 ----
 
