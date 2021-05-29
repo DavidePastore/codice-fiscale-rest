@@ -1,22 +1,18 @@
 <?php
+namespace DavidePastore\CodiceFiscale\Tests\Application;
 
-use Silex\WebTestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ApiTest extends WebTestCase
 {
-    public function createApplication()
-    {
-        return require __DIR__.'/../app.php';
-    }
-
     /**
      * Test for calculate.
      *
      * @dataProvider calculateProvider
      */
-    public function testCalculate($parameters, $expected)
+    public function testCalculate($parameters, $expected): void
     {
-        $client = $this->createClient();
+        $client = static::createClient();
 
         $client->request(
             'GET',
@@ -131,7 +127,7 @@ class ApiTest extends WebTestCase
      */
     public function testCalculateAll($parameters, $expected)
     {
-        $client = $this->createClient();
+        $client = static::createClient();
 
         $client->request(
             'GET',
@@ -355,7 +351,7 @@ class ApiTest extends WebTestCase
      */
     public function testCheck($parameters, $expected)
     {
-        $client = $this->createClient();
+        $client = static::createClient();
 
         $client->request(
             'GET',

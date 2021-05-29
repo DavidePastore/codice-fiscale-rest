@@ -15,63 +15,21 @@
 
       <!-- Site Properties -->
       <title>{% block title %}{% endblock %} - Codice Fiscale REST</title>
-      <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/semantic/dist/components/reset.css">
-      <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/semantic/dist/components/site.css">
 
-      <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/semantic/dist/components/container.css">
-      <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/semantic/dist/components/grid.css">
-      <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/semantic/dist/components/header.css">
-      <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/semantic/dist/components/image.css">
-      <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/semantic/dist/components/menu.css">
+      {% block stylesheets %}
+          {{ encore_entry_link_tags('app') }}
+      {% endblock %}
 
-      <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/semantic/dist/components/divider.css">
-      <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/semantic/dist/components/dropdown.css">
-      <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/semantic/dist/components/segment.css">
-      <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/semantic/dist/components/button.css">
-      <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/semantic/dist/components/form.css">
-      <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/semantic/dist/components/list.css">
-      <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/semantic/dist/components/icon.css">
-      <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/semantic/dist/components/sidebar.css">
-      <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/semantic/dist/components/table.css">
-      <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/semantic/dist/components/transition.css">
+      {% block javascripts %}
+          {{ encore_entry_script_tags('app') }}
+      {% endblock %}
 
-      <!-- Custom style -->
-      <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/css/style.css">
 
-      <script src="{{ app.request.basepath }}/node_modules/jquery/dist/jquery.min.js"></script>
-      <script src="{{ app.request.basepath }}/semantic/dist/components/visibility.js"></script>
-      <script src="{{ app.request.basepath }}/semantic/dist/components/sidebar.js"></script>
-      <script src="{{ app.request.basepath }}/semantic/dist/components/transition.js"></script>
-      <script src="{{ app.request.basepath }}/semantic/dist/components/dropdown.js"></script>
+      <!-- <script src="{{ app.request.basepath }}/node_modules/jquery/dist/jquery.min.js"></script> -->
 
       <!-- Highlight code -->
       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
       <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
-      <script>
-      $(document)
-        .ready(function() {
-
-          // fix menu when passed
-          $('.masthead')
-            .visibility({
-              once: false,
-              onBottomPassed: function() {
-                $('.fixed.menu').transition('fade in');
-              },
-              onBottomPassedReverse: function() {
-                $('.fixed.menu').transition('fade out');
-              }
-            })
-          ;
-
-          // create sidebar and attach to menu open
-          $('.ui.sidebar')
-            .sidebar('attach events', '.toc.item')
-          ;
-
-        })
-      ;
-      </script>
   {% endblock %}
 </head>
 <body>
