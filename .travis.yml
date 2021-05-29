@@ -20,8 +20,10 @@ jobs:
       language: node_js
       node_js: 8
       script:
-        - npm install -ddd
+        - npm install
         - npm run dev
+      after_failure:
+        - cat /home/travis/.npm/_logs/*-debug.log
     - <<: *phpbuild
       php: 7.4
     - <<: *nodebuild
