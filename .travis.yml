@@ -23,15 +23,6 @@ jobs:
       script:
         - npm install
         - npm run dev
-      after_failure:
-        - echo "This is after_failure!!!"
-        - cat /home/travis/.npm/_logs/*-debug.log
-      after_success:
-        - echo "This is after_success!!!"
-        - cat /home/travis/.npm/_logs/*-debug.log
-      after_script:
-        - echo "This is after_script!!!"
-        - cat /home/travis/.npm/_logs/*-debug.log
     - <<: *phpbuild
       php: 7.4
     - <<: *nodebuild
