@@ -1,0 +1,2 @@
+//Highlight code
+hljs.initHighlighting();

@@ -1,38 +1,82 @@
 {
     "name": "davidepastore/codice-fiscale-rest",
     "description": "A simple codice fiscale rest website based on Silex.",
-    "keywords": ["codice","fiscale","rest","silex", "tax", "code", "italian", "italy", "php"],
-    "type": "library",
+    "keywords": ["codice","fiscale","rest","symfony", "tax", "code", "italian", "italy", "php"],
     "authors": [
         {
             "name": "Davide Pastore",
             "email": "pasdavide@gmail.com"
         }
     ],
-    "license" : "GPL-2.0+",
-    "autoload" : {
-        "psr-4" : {
-            "" : "src/"
-        }
-    },
+    "type": "library",
+    "license": "GPL-2.0+",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
-        "silex/silex": "~1.3",
-        "davidepastore/codice-fiscale": "0.*",
-        "twig/twig": "^1.23",
-        "symfony/twig-bridge": "^2.7",
-        "symfony/validator": "^3.0",
-        "symfony/property-access": "^3.0"
+        "php": ">=7.2.5",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "davidepastore/codice-fiscale": "^0.8.0",
+        "doctrine/annotations": "^1.13",
+        "nelmio/cors-bundle": "^2.1",
+        "symfony/console": "5.2.*",
+        "symfony/dotenv": "5.2.*",
+        "symfony/flex": "^1.3.1",
+        "symfony/framework-bundle": "5.2.*",
+        "symfony/twig-bundle": "5.2.*",
+        "symfony/validator": "5.2.*",
+        "symfony/webpack-encore-bundle": "^1.11",
+        "symfony/yaml": "5.2.*",
+        "twig/extra-bundle": "^2.12|^3.0",
+        "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
-        "symfony/browser-kit": "^3.0",
-        "symfony/css-selector": "^3.0",
-        "phpunit/phpunit": "^4.0",
-        "scrutinizer/ocular": "~1.1"
-    },
-    "scripts": {
-        "start": "php -S localhost:8080 -t ./ ./index.php"
+        "phpunit/phpunit": "^9.5",
+        "symfony/browser-kit": "^5.2",
+        "symfony/css-selector": "^5.2",
+        "symfony/phpunit-bridge": "^5.2"
     },
     "config": {
-        "process-timeout": 0
+        "optimize-autoloader": true,
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "DavidePastore\\CodiceFiscaleRest\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DavidePastore\\CodiceFiscaleRest\\Tests\\": "tests/"
+        }
+    },
+    "replace": {
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php72": "*"
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "5.2.*"
+        }
     }
 }
