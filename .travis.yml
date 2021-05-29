@@ -7,7 +7,7 @@ jobs:
     - &phpbuild
       stage: php-build
       language: php
-      php: 7.1
+      php: 7.2
       before_script:
       - composer self-update
       - composer update --prefer-source
@@ -22,8 +22,6 @@ jobs:
       node_js: 8
       script:
         - npm install
-    - <<: *phpbuild
-      php: 7.2
     - <<: *phpbuild
       php: 7.3
     - <<: *phpbuild
