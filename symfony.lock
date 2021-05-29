@@ -20,6 +20,24 @@
     "doctrine/lexer": {
         "version": "1.2.1"
     },
+    "guzzlehttp/guzzle": {
+        "version": "7.3.0"
+    },
+    "guzzlehttp/promises": {
+        "version": "1.4.1"
+    },
+    "guzzlehttp/psr7": {
+        "version": "1.8.2"
+    },
+    "jms/metadata": {
+        "version": "1.7.0"
+    },
+    "jms/parser-lib": {
+        "version": "1.0.0"
+    },
+    "jms/serializer": {
+        "version": "1.14.1"
+    },
     "myclabs/deep-copy": {
         "version": "1.10.2"
     },
@@ -47,6 +65,9 @@
     "php": {
         "version": "7.2.5"
     },
+    "phpcollection/phpcollection": {
+        "version": "0.5.0"
+    },
     "phpdocumentor/reflection-common": {
         "version": "2.2.0"
     },
@@ -55,6 +76,9 @@
     },
     "phpdocumentor/type-resolver": {
         "version": "1.4.0"
+    },
+    "phpoption/phpoption": {
+        "version": "1.7.5"
     },
     "phpspec/prophecy": {
         "version": "1.13.0"
@@ -97,8 +121,20 @@
     "psr/event-dispatcher": {
         "version": "1.0.0"
     },
+    "psr/http-client": {
+        "version": "1.0.1"
+    },
+    "psr/http-message": {
+        "version": "1.0.1"
+    },
     "psr/log": {
         "version": "1.1.4"
+    },
+    "ralouphie/getallheaders": {
+        "version": "3.0.3"
+    },
+    "scrutinizer/ocular": {
+        "version": "1.8.1"
     },
     "sebastian/cli-parser": {
         "version": "1.0.1"
@@ -275,6 +311,9 @@
     },
     "symfony/polyfill-php80": {
         "version": "v1.22.1"
+    },
+    "symfony/process": {
+        "version": "v5.2.7"
     },
     "symfony/routing": {
         "version": "5.1",
