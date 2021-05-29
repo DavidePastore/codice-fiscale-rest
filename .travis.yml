@@ -20,7 +20,7 @@ jobs:
       language: node_js
       node_js: 8
       script:
-        - npm install
+        - npm install -ddd
         - npm run dev
     - <<: *phpbuild
       php: 7.4
