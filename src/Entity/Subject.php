@@ -6,8 +6,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class Subject
 {
-
-    public function __construct($data) {
+    public function __construct($data)
+    {
         $this->name = $data['name'];
         $this->surname = $data['surname'];
         $this->gender = $data['gender'];

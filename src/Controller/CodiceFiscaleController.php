@@ -19,7 +19,6 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
  */
 class CodiceFiscaleController extends AbstractController
 {
-
     public function __construct(ValidatorInterface $validator)
     {
         $this->validator = $validator;
