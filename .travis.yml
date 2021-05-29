@@ -22,6 +22,7 @@ jobs:
       node_js: 8
       script:
         - npm install
+        - npm run dev
     - <<: *phpbuild
       php: 7.3
     - <<: *phpbuild
