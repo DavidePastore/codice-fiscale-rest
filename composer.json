@@ -1,6 +1,6 @@
 {
     "name": "davidepastore/codice-fiscale-rest",
-    "description": "A simple codice fiscale rest website based on Silex.",
+    "description": "A simple codice fiscale rest website based on Symfony.",
     "keywords": ["codice","fiscale","rest","symfony", "tax", "code", "italian", "italy", "php"],
     "authors": [
         {
