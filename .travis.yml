@@ -1,5 +1,4 @@
 language: php
-# also test against HHVM, but require "trusty" and ignore errors
 jobs:
   include:
     # Use a YAML alias to prevent redundancy.
@@ -27,9 +26,6 @@ jobs:
       php: 7.3
     - <<: *phpbuild
       php: 7.4
-    - <<: *phpbuild
-      php: hhvm
-      dist: trusty
     - <<: *nodebuild
       node_js: 10
     - <<: *nodebuild
@@ -38,8 +34,6 @@ jobs:
       node_js: 12
     - <<: *nodebuild
       node_js: 13
-  allow_failures:
-    - php: hhvm
 
 cache:
   npm: false
