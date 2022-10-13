@@ -74,4 +74,9 @@ Encore
     .autoProvidejQuery()
 ;
 
-module.exports = Encore.getWebpackConfig();
+webpackConfig = Encore.getWebpackConfig();
+webpackConfig.output.hashFunction = 'xxhash64';
+webpackConfig.experiments = {
+    futureDefaults: true
+};
+module.exports = webpackConfig
