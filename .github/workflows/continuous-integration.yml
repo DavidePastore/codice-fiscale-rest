@@ -40,6 +40,11 @@ jobs:
       - name: Install NPM dependencies
         run: npm install
       
+      - name: Build Fomantic-UI
+        run: |
+          cd node_modules/fomantic-ui
+          npx gulp build
+      
       - name: Compile assets
         run: npm run dev
       
