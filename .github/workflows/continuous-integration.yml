@@ -43,7 +43,7 @@ jobs:
       - name: Build Fomantic-UI
         run: |
           cd node_modules/fomantic-ui
-          npx gulp build
+          npx gulp install
       
       - name: Compile assets
         run: npm run dev
