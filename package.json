@@ -14,10 +14,14 @@
   },
   "snyk": true,
   "devDependencies": {
+    "@babel/core": "^7.20.2",
+    "@babel/preset-env": "^7.20.2",
     "@symfony/webpack-encore": "^4.1.2",
     "babel-loader": "^8.2.4",
     "core-js": "^3.18.1",
     "stimulus": "^2.0.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0",
     "webpack-notifier": "^1.13.0"
   }
 }
