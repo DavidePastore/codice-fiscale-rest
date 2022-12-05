@@ -2,7 +2,7 @@
   "dependencies": {
     "fomantic-ui": "^2.9.0",
     "jquery": "^3.4.1",
-    "snyk": "^1.996.0",
+    "snyk": "^1.1064.0",
     "yamljs": "^0.2.4"
   },
   "scripts": {
