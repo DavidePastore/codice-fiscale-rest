@@ -11,7 +11,6 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class WebsiteController extends AbstractController
 {
-
     /**
      * Home page
      * @Route("/", name="homepage")
