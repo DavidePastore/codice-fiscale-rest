@@ -9,7 +9,7 @@ jobs:
       matrix:
         operating-system: [ubuntu-latest]
         php-version: ['8.0', '8.1']
-        node-version: [14.x, 15.x, 16.x, 17.x, 18.x]
+        node-version: [15.x, 16.x, 17.x, 18.x]
     name: PHP ${{ matrix.php-version }} | Node ${{ matrix.node-version }} Test on ${{ matrix.operating-system }}
     steps:
       - uses: actions/checkout@v2
