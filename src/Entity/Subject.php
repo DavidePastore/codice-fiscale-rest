@@ -17,53 +17,38 @@ class Subject
         $this->codiceFiscale = $data['codiceFiscale'] ?? '';
     }
 
-    /**
-     * @Assert\NotNull(groups={"calculate", "calculateAll", "check"})
-     */
+    #[Assert\NotNull(groups: ['calculate', 'calculateAll', 'check'])]
     private $name;
-    
-    /**
-     * @Assert\NotNull(groups={"calculate", "calculateAll", "check"})
-     */
+
+    #[Assert\NotNull(groups: ['calculate', 'calculateAll', 'check'])]
     private $surname;
 
-
-    /**
-     * @Assert\Choice(
-     *      groups={"calculate", "calculateAll", "check"},
-     *      choices={"M", "F"},
-     *      message="Choose a valid gender (M or F)."
-     * )
-     */
+    #[Assert\Choice(
+        groups: ['calculate', 'calculateAll', 'check'],
+        choices: ['M', 'F'],
+        message: 'Choose a valid gender (M or F).'
+    )]
     private $gender;
 
-    /**
-     * @Assert\Date(groups={"calculate", "calculateAll", "check"})
-     */
+    #[Assert\Date(groups: ['calculate', 'calculateAll', 'check'])]
     private $birthDate;
 
-    /**
-     * @Assert\Sequentially({
-     *     @Assert\NotBlank(groups={"calculate", "calculateAll", "check"}),
-     *     @Assert\Length(
-     *      groups={"calculate", "calculateAll", "check"},
-     *      min = 4,
-     *      max = 4
-     *     )
-     * })
-     */
+    #[Assert\Sequentially([
+        new Assert\NotBlank(groups: ['calculate', 'calculateAll', 'check']),
+        new Assert\Length(
+            groups: ['calculate', 'calculateAll', 'check'],
+            min: 4,
+            max: 4
+        ),
+    ])]
     private $belfioreCode;
 
-    /**
-     * @Assert\Type(
-     *      groups={"calculate", "check"},
-     *      type="numeric"
-     * )
-     */
+    #[Assert\Type(
+        groups: ['calculate', 'check'],
+        type: 'numeric'
+    )]
     private $omocodiaLevel;
 
-    /**
-     * @Assert\NotNull(groups={"check"})
-     */
+    #[Assert\NotNull(groups: ['check'])]
     private $codiceFiscale;
 }

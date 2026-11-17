@@ -4,7 +4,7 @@ namespace DavidePastore\CodiceFiscaleRest\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 /**
  * Class WebsiteController
@@ -13,8 +13,8 @@ class WebsiteController extends AbstractController
 {
     /**
      * Home page
-     * @Route("/", name="homepage")
      */
+    #[Route('/', name: 'homepage')]
     public function calculate(): Response
     {
         return $this->render('index.twig');
@@ -22,8 +22,8 @@ class WebsiteController extends AbstractController
 
     /**
      * Documentazione
-     * @Route("/documentazione", name="documentazione")
      */
+    #[Route('/documentazione', name: 'documentazione')]
     public function documentazione(): Response
     {
         return $this->render('documentazione.twig');
@@ -31,8 +31,8 @@ class WebsiteController extends AbstractController
 
     /**
      * Prova
-     * @Route("/prova", name="prova")
      */
+    #[Route('/prova', name: 'prova')]
     public function prova(): Response
     {
         return $this->render('prova.twig');

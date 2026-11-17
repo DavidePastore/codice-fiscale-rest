@@ -1,5 +1,5 @@
 <?php
-namespace DavidePastore\CodiceFiscale\Tests\Application;
+namespace DavidePastore\CodiceFiscaleRest\Tests\Application;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
