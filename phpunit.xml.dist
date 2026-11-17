@@ -30,12 +30,9 @@
         </include>
     </coverage>
 
-    <!-- Run `composer require symfony/phpunit-bridge` before enabling this extension -->
-    <!--
     <listeners>
         <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
     </listeners>
-    -->
 
     <extensions>
     </extensions>
