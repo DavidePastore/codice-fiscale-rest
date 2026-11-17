@@ -9,9 +9,6 @@
     "yamljs": "^0.2.4"
   },
   "scripts": {
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect",
-    "prepare": "npm run snyk-protect",
     "dev-server": "encore dev-server",
     "dev": "encore dev",
     "watch": "encore dev --watch",
