@@ -2,41 +2,8 @@
     "davidepastore/codice-fiscale": {
         "version": "v0.8.0"
     },
-    "doctrine/annotations": {
-        "version": "1.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "1.0",
-            "ref": "a2759dd6123694c8d901d0ec80006e044c2e6457"
-        },
-        "files": [
-            "./config/routes/annotations.yaml"
-        ]
-    },
     "doctrine/instantiator": {
         "version": "1.4.0"
-    },
-    "doctrine/lexer": {
-        "version": "1.2.1"
-    },
-    "guzzlehttp/guzzle": {
-        "version": "7.3.0"
-    },
-    "guzzlehttp/promises": {
-        "version": "1.4.1"
-    },
-    "guzzlehttp/psr7": {
-        "version": "1.8.2"
-    },
-    "jms/metadata": {
-        "version": "1.7.0"
-    },
-    "jms/parser-lib": {
-        "version": "1.0.0"
-    },
-    "jms/serializer": {
-        "version": "1.14.1"
     },
     "myclabs/deep-copy": {
         "version": "1.10.2"
@@ -61,15 +28,6 @@
     },
     "phar-io/version": {
         "version": "3.1.0"
-    },
-    "php": {
-        "version": "7.2.5"
-    },
-    "phpcollection/phpcollection": {
-        "version": "0.5.0"
-    },
-    "phpoption/phpoption": {
-        "version": "1.7.5"
     },
     "phpunit/php-code-coverage": {
         "version": "9.2.6"
@@ -109,20 +67,8 @@
     "psr/event-dispatcher": {
         "version": "1.0.0"
     },
-    "psr/http-client": {
-        "version": "1.0.1"
-    },
-    "psr/http-message": {
-        "version": "1.0.1"
-    },
     "psr/log": {
         "version": "1.1.4"
-    },
-    "ralouphie/getallheaders": {
-        "version": "3.0.3"
-    },
-    "scrutinizer/ocular": {
-        "version": "1.8.1"
     },
     "sebastian/cli-parser": {
         "version": "1.0.1"
@@ -262,9 +208,6 @@
             "src/Kernel.php"
         ]
     },
-    "symfony/http-client-contracts": {
-        "version": "v2.4.0"
-    },
     "symfony/http-foundation": {
         "version": "v5.2.8"
     },
@@ -295,15 +238,6 @@
     "symfony/polyfill-mbstring": {
         "version": "v1.22.1"
     },
-    "symfony/polyfill-php73": {
-        "version": "v1.22.1"
-    },
-    "symfony/polyfill-php80": {
-        "version": "v1.22.1"
-    },
-    "symfony/process": {
-        "version": "v5.2.7"
-    },
     "symfony/routing": {
         "version": "7.4",
         "recipe": {
@@ -323,9 +257,6 @@
     "symfony/string": {
         "version": "v5.2.8"
     },
-    "symfony/test-pack": {
-        "version": "v1.0.7"
-    },
     "symfony/translation-contracts": {
         "version": "v2.4.0"
     },
@@ -344,9 +275,6 @@
             "config/packages/twig.yaml",
             "templates/base.html.twig"
         ]
-    },
-    "symfony/twig-pack": {
-        "version": "v1.0.1"
     },
     "symfony/validator": {
         "version": "7.4",
