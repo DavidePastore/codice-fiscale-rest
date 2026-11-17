@@ -8,11 +8,11 @@ jobs:
     strategy:
       matrix:
         operating-system: [ubuntu-latest]
-        php-version: ['8.0', '8.1', '8.2', '8.3']
-        node-version: [16.x, 17.x, 18.x, 19.x, 20.x, 21.x, 22.x, 23.x, 24.x]
+        php-version: ['8.2', '8.3', '8.4', '8.5']
+        node-version: [22.x, 24.x, 26.x]
     name: PHP ${{ matrix.php-version }} | Node ${{ matrix.node-version }} Test on ${{ matrix.operating-system }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       
@@ -25,15 +25,13 @@ jobs:
         run: php -v
 
       - name: Install dependencies
-        run: composer install --prefer-dist --no-progress --no-suggest
+        run: composer install --prefer-dist --no-progress
 
       - name: PHP Unit tests
-        run: |
-         vendor/bin/phpunit --testsuite travis-ci
-         vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
+        run: vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
       
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
       
@@ -49,4 +47,6 @@ jobs:
         run: npm run dev
       
       - name: Upload code coverage data
-        run: php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
+        run: |
+          composer global require scrutinizer/ocular --no-progress --no-interaction
+          php "$(composer global config bin-dir --absolute --quiet)/ocular" code-coverage:upload --format=php-clover coverage.clover

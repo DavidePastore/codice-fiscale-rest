@@ -10,33 +10,32 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**
  * Class CrudController
- * @Route("/api/codiceFiscale")
  */
+#[Route('/api/codiceFiscale')]
 class CodiceFiscaleController extends AbstractController
 {
-    public function __construct(ValidatorInterface $validator)
+    public function __construct(private ValidatorInterface $validator)
     {
-        $this->validator = $validator;
     }
 
     /**
      * Calculate the codice fiscale by the given parameters.
-     * @Route("/calculate", name="apiCalculate")
      */
+    #[Route('/calculate', name: 'apiCalculate')]
     public function calculate(Request $request): Response
     {
         $data = array(
-            'name' => $request->get('name', ''),
-            'surname' => $request->get('surname', ''),
-            'gender' => $request->get('gender', ''),
-            'birthDate' => $request->get('birthDate', ''),
-            'belfioreCode' => $request->get('belfioreCode', ''),
-            'omocodiaLevel' => $request->get('omocodiaLevel', 0),
+            'name' => $this->requestValue($request, 'name', ''),
+            'surname' => $this->requestValue($request, 'surname', ''),
+            'gender' => $this->requestValue($request, 'gender', ''),
+            'birthDate' => $this->requestValue($request, 'birthDate', ''),
+            'belfioreCode' => $this->requestValue($request, 'belfioreCode', ''),
+            'omocodiaLevel' => $this->requestValue($request, 'omocodiaLevel', 0),
         );
 
         $subject = new Subject($data);
@@ -63,16 +62,16 @@ class CodiceFiscaleController extends AbstractController
 
     /**
      * Calculate all the codice fiscale by the given parameters.
-     * @Route("/calculateAll", name="apiCalculateAll")
      */
+    #[Route('/calculateAll', name: 'apiCalculateAll')]
     public function calculateAll(Request $request): Response
     {
         $data = array(
-            'name' => $request->get('name', ''),
-            'surname' => $request->get('surname', ''),
-            'gender' => $request->get('gender', ''),
-            'birthDate' => $request->get('birthDate', ''),
-            'belfioreCode' => $request->get('belfioreCode', ''),
+            'name' => $this->requestValue($request, 'name', ''),
+            'surname' => $this->requestValue($request, 'surname', ''),
+            'gender' => $this->requestValue($request, 'gender', ''),
+            'birthDate' => $this->requestValue($request, 'birthDate', ''),
+            'belfioreCode' => $this->requestValue($request, 'belfioreCode', ''),
         );
 
         $subject = new Subject($data);
@@ -97,18 +96,18 @@ class CodiceFiscaleController extends AbstractController
 
     /**
      * Check if the given parameters are ok for the given parameters.
-     * @Route("/check", name="apiCheck")
      */
+    #[Route('/check', name: 'apiCheck')]
     public function check(Request $request): Response
     {
         $data = array(
-            'name' => $request->get('name', ''),
-            'surname' => $request->get('surname', ''),
-            'gender' => $request->get('gender', ''),
-            'birthDate' => $request->get('birthDate', ''),
-            'belfioreCode' => $request->get('belfioreCode', ''),
-            'codiceFiscale' => $request->get('codiceFiscale', ''),
-            'omocodiaLevel' => $request->get('omocodiaLevel', Checker::ALL_OMOCODIA_LEVELS),
+            'name' => $this->requestValue($request, 'name', ''),
+            'surname' => $this->requestValue($request, 'surname', ''),
+            'gender' => $this->requestValue($request, 'gender', ''),
+            'birthDate' => $this->requestValue($request, 'birthDate', ''),
+            'belfioreCode' => $this->requestValue($request, 'belfioreCode', ''),
+            'codiceFiscale' => $this->requestValue($request, 'codiceFiscale', ''),
+            'omocodiaLevel' => $this->requestValue($request, 'omocodiaLevel', Checker::ALL_OMOCODIA_LEVELS),
         );
 
         $subject = new Subject($data);
@@ -136,6 +135,21 @@ class CodiceFiscaleController extends AbstractController
         }
 
         return new JsonResponse($response);
+    }
+
+    /**
+     * Get a request value looking, in order, at the route attributes, the query
+     * string and the request body (same lookup order as the deprecated Request::get()).
+     */
+    private function requestValue(Request $request, string $key, mixed $default = null): mixed
+    {
+        foreach ([$request->attributes, $request->query, $request->request] as $bag) {
+            if ($bag->has($key)) {
+                return $bag->all()[$key];
+            }
+        }
+
+        return $default;
     }
 
     /**
